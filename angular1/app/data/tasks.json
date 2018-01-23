@@ -1,0 +1,29 @@
+
+
+ [
+    {
+        "id": 1,
+        "title": "toDo",
+        "style": "alert alert-warning",
+        "tasks": [
+            { "id": 1, "title": "open account", "description": "go burn old credit cards" },
+            { "id": 2, "title": "open account 2", "description": "go burn old credit cards" }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "In Progress",
+        "style": "alert alert-info",
+        "tasks": [
+            { "id": 2, "title": "learn React", "description": "go to school"}
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Done",
+        "style": "alert alert-success",
+        "tasks": [
+            { "id": 4, "title": "Html", "description": "Learn Html syntax" }
+        ]
+    }
+]

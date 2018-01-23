@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myOrganizer">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>My Organizer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/main-controller.js"></script>
+  <script src="services/tasks-service.js"></script>
+  <script src="data/tasks.json"></script>
+</head>
+
+<body ng-controller="mainController">
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root">
+    <div>
+      <header>
+        <div class="jumbotron">
+          <div class="container">
+            <div class="row">
+              <div class="container" ng-hide="loaded">
+                 <img src="https://s-media-cache-ak0.pinimg.com/originals/9e/8c/6d/9e8c6d7fe9ef07a28bf57324725660f5.gif">
+              </div>
+              <h1>My Organizer</h1>
+              <p>My Organizer app allows to organize tasks by spliting them into three categories: To do, In Progress and Done</p>
+            </div>
+            <div class="row">
+              <div class="searchsection">
+                <p>Today:{{currentDate}}
+                  <strong id="date"></strong>
+                </p>
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="content">
+        <div class="container">
+          <div class="col-md-4" ng-repeat="column in columns">
+            <div class="titleandbtn">
+              <button class="btn btn-warning" ng-click="addClick(column.id)">Add</button>
+              <h2>{{column.title}}</h2>
+            </div>
+            <div class="tasks">
+              <div class="{{column.style}}" ng-repeat="task in column.tasks">
+                <div ng-show="!task.edit">
+                  <h3>{{task.title}}</h3>
+                  <p>Go to First Tech</p>
+                </div>
+                <div ng-show="task.edit === true">
+                  <input type="text" placeholder="title" ng-model="task.title"/>
+                  <textarea placeholder="description" ng-model="task.description"></textarea>
+                </div>
+                <div class="taskdetails">
+                  <div class="taskbuttons">
+                    <div>
+                      <a href="" ng-show="!task.edit" ng-click="editClick(column.id, task.id)">Edit</a>
+                      <a href="" ng-show="task.edit === true" ng-click="task.edit = false">Save</a>
+                      <a href="" ng-show="task.edit === true" ng-click="cancelClick(column.id, task.id)">Cancel</a>
+                      <a href="" ng-click="deleteClick(column.id, task.id)">Delete</a>
+                    </div>
+                    <div>
+                      <a href="#">In Progress</a>
+                      <a href="#">Done</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
