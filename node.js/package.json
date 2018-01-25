@@ -4,12 +4,15 @@
   "description": "my organizer",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "init-db":"node ./src/init-database.js"
+    "start": "node server",
+    "init-db": "node ./src/init-database.js"
   },
   "dependencies": {
-    "mongodb":"^2.2.32"
+    "mongodb": "^2.2.32"
   },
   "author": "me",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "~0.10.0 || ~4.2.0"
+  }
 }
