@@ -1,5 +1,5 @@
-let mongo = require('mongodb');
-let url = "mongodb://localhost:27017/organizer"
+var mongo = require('mongodb');
+var url = "mongodb://localhost:27017/organizer"
 
 module.exports = {
     getTaskGroups: function (callback) {
