@@ -1,5 +1,5 @@
-let fs = require('fs');
-let file_path = "data/tasks.json"
+var fs = require('fs');
+var file_path = "data/tasks.json"
 
 module.exports = {
     getTaskGroups: function (callback) {
